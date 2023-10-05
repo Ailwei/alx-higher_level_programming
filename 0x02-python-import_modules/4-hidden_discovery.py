@@ -17,7 +17,9 @@ if __name__ == "__main__":
             pyc_data = pyc_file.read()
 
         # Unmarshal the compiled code to get the code object
-        code_object = marshal.loads(pyc_data[16:])
+        code_object = marshal.loads(
+            pyc_data[16:]
+        )
 
         # Extract and print the names defined in the module
         names = extract_names(code_object)
@@ -26,3 +28,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         print("Error:", e)
+
