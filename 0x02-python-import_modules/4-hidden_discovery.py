@@ -3,10 +3,16 @@
 import marshal
 import sys
 
+
 def extract_names(code_object):
     # Extract the names defined in the code object
-    names = [name for name in code_object.co_names if not name.startswith('__')]
+    names = [
+            name for name in code_object.co_names
+            if not name.startswith('__')
+            ]
+
     return names
+
 
 if __name__ == "__main__":
     try:
@@ -28,4 +34,3 @@ if __name__ == "__main__":
 
     except Exception as e:
         print("Error:", e)
-
