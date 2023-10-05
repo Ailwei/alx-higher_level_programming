@@ -7,7 +7,6 @@ if __name__ == "__main__":
     # Initialize a variable to store the sum
     total = 0
 
-    # Iterate through the arguments, cast them to integers, and add to the total
     for arg in argv:
         total += int(arg)
 
