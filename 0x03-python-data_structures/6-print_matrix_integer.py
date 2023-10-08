@@ -7,5 +7,5 @@ def print_matrix_integer(matrix=[[]]):
     max_width = len(str(max_value))
     for row in matrix:
         for num in row:
-            print("{:>{width}}".format(num, width=max_width), end=" ")
+            print("{:>{width}}".format(num, width=max_width), end="")
         print()
