@@ -1,5 +1,5 @@
-#include <Python.h>
 #include <stdio.h>
+#include <Python.h>
 
 void print_python_list(PyObject *p) {
     if (PyList_Check(p)) {
