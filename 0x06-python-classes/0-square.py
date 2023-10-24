@@ -1,12 +1,7 @@
 #!/usr/bin/python3
 
+"""a module that contains the Square class"""
+
 class Square:
-    """
-    This is the Square class.
-
-    It doesn't have any attributes or methods yet.
-
-    You can use this class as a template to
-    define squares with specific behaviors.
-    """
+    """an empty class Square that defines a square"""
     pass
