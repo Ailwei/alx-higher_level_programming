@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""My square module"""
+
 
 class Square:
-    """Defines a square"""
+    """Defines a square."""
 
     def __init__(self, size=0, position=(0, 0)):
         """Create a Square instance.
@@ -12,6 +14,10 @@ class Square:
         """
         self.size = size
         self.position = position
+
+    def __str__(self):
+        """String representation of the Square."""
+        return self.pos_print()
 
     @property
     def size(self):
@@ -60,12 +66,10 @@ class Square:
         """Set the position of the square.
 
         Args:
-            value (tuple): The position coordinates as
-            a tuple of two positive integers.
+            value (tuple): The position coordinates as a tuple of two positive integers.
 
         Raises:
-            TypeError: If value is not a tuple
-            or any integer in the tuple is less than 0.
+            TypeError: If value is not a tuple or any integer in the tuple is less than 0.
         """
         if not isinstance(value, tuple):
             raise TypeError('position must be a tuple of 2 positive integers')
@@ -84,8 +88,7 @@ class Square:
         return self.__size * self.__size
 
     def pos_print(self):
-        """Generate the string representation
-        of the square with proper position and spacing."""
+        """Generate the string representation of the square with proper position and spacing."""
         pos = ""
         if self.size == 0:
             return "\n"
