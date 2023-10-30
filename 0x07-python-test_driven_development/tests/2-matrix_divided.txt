@@ -1,0 +1,70 @@
+# tests/2-matrix_divided.txt
+
+``matrix_divided(...)`` returns a new matrix that is a copy of the parameter
+``matrix`` with all elements divided by ``div``.
+
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+This is the doctest for the matrix_divided function.
+
+>>> from matrix_divided import matrix_divided
+
+# Test case 1: Valid input, divide by 3
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> result = matrix_divided(matrix, 3)
+>>> result
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# Test case 2: Valid input, divide by 2.5
+>>> matrix = [
+...     [10, 20, 30],
+...     [40, 50, 60]
+... ]
+>>> result = matrix_divided(matrix, 2.5)
+>>> result
+[[4.0, 8.0, 12.0], [16.0, 20.0, 24.0]]
+
+# Test case 3: Zero division error
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> result = matrix_divided(matrix, 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+# Test case 4: Type error for non-numeric matrix
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, '5', 6]
+... ]
+>>> result = matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test case 5: Type error for non-numeric div
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> result = matrix_divided(matrix, '2')
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
+# Test case 6: Type error for rows of different sizes
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5]
+... ]
+>>> result = matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size

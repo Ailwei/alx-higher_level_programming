@@ -1,0 +1,23 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test case 1: Normal text with paragraphs
+>>> text_indentation("This is a sample text. It has some spaces : like this? What do you think.")
+'This is a sample text.\n\nIt has some spaces :\n\nlike this?\n\nWhat do you think.'
+
+# Test case 2: Text with no punctuation
+>>> text_indentation("NoPunctuationHere")
+'NoPunctuationHere'
+
+# Test case 3: Empty text
+>>> text_indentation("")
+''
+
+# Test case 4: Text with only spaces
+>>> text_indentation("   ")
+''
+
+# Test case 5: Non-string input
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
