@@ -21,9 +21,9 @@ def get_solution(board):
     """Return the list of lists representation of a solved chessboard."""
     solution = []
     for r in range(len(board)):
-        for c in range(len(board)):
-            if board[r][c] == "Q":
-                solution.append([r, c])
+        for j in range(len(board)):
+            if board[r][j] == "Q":
+                solution.append([r, j])
                 break
     return solution
 
