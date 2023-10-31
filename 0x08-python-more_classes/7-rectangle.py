@@ -76,7 +76,7 @@ class Rectangle:
         """Return the string representation of the Rectangle."""
         rectx = "Rectangle(" + str(self.__width)
         rectx += ", " + str(self.__height) + ")"
-        return (rect)
+        return (rectx)
 
     def __del__(self):
         """Print a message for every deletion of a Rectangle."""
