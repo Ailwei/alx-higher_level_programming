@@ -70,7 +70,7 @@ class Rectangle:
             [rectx.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
                 rectx.append("\n")
-        return ("".join(rect))
+        return ("".join(rectx))
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
