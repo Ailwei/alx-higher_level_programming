@@ -37,6 +37,8 @@ def xout(board, row, col):
         row (int): The row where a queen was last played.
         col (int): The column where a queen was last played.
     """
+    j = col
+
     for j in range(col + 1, len(board)):
         board[row][j] = "x"
     for c in range(col - 1, -1, -1):
