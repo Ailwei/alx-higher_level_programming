@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """matrix function"""
 
+
 def matrix_mul(m_a, m_b):
     """
     Multiply two matrices.
@@ -69,6 +70,7 @@ def matrix_mul(m_a, m_b):
         matrix_2.append(my_row)
 
     return matrix_2
+
 
 if __name__ == "__main__":
     import doctest
