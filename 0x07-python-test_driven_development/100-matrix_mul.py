@@ -62,7 +62,7 @@ def matrix_mul(m_a, m_b):
     matrix_2 = []
     for row in m_a:
         my_row = []
-        for column in matrix1:
+        for column in matrix_1:
             product = 0
             for m in range(len(matrix_1[0])):
                 product += row[m] * column[m]
