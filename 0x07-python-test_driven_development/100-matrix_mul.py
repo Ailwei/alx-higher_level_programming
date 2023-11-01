@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""matrix function"""
 
 def matrix_mul(m_a, m_b):
     """
