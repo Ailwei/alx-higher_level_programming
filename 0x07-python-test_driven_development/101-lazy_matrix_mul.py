@@ -25,7 +25,8 @@ def lazy_matrix_mul(m_a, m_b):
     if not isinstance(m_a, list) or not isinstance(m_b, list):
         raise ValueError("m_a and m_b must be lists")
 
-    if not all(isinstance(row, list) for row in m_a) or not all(isinstance(row, list) for row in m_b):
+    if not all(isinstance(row, list) for row in m_a) /
+    or not all(isinstance(row, list) for row in m_b):
         raise ValueError("m_a and m_b must be lists of lists")
 
     if not m_a or not m_b:
