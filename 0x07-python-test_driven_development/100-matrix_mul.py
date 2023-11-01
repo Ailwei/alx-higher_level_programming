@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""the matrix funvtion"""
 def matrix_mul(m_a, m_b):
     """
     Multiply two matrices, m_a and m_b.
