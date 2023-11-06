@@ -5,4 +5,7 @@ this define the geomentry
 
 
 class BaseGeometry:
+    """
+    empty
+    """
     pass
