@@ -2,7 +2,8 @@
 """
 This define the the function thats return
 true if object is an instance or
-if the object is an instance of a class that inherited from the specified class: otherwise false
+if the object is an instance of a class that
+inherited from the specified class: otherwise false
 """
 
 
