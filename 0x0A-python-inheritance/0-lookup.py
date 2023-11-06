@@ -15,15 +15,4 @@ def lookup(obj):
     It filters out special methods (those starting with double underscores)
     and returns the remaining names.
     """
-    # Get the list of attributes and methods using dir()
-
-    attributes_and_methods = dir(obj)
-
-    # Filter out attributes and methods that start
-    # with '__' (special methods)
-
-    filtered_attributes_and_methods = [
-            item for item in attributes_and_methods /
-            if not item.startswith('__')]
-
-    return filtered_attributes_and_methods
+    return (dir(obj))
