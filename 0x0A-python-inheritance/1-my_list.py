@@ -1,4 +1,4 @@
-#!/usr/usr/bin/python3
+#!/usr/bin/python3
 """
 this function print the list in sorted lis
 """
@@ -11,3 +11,7 @@ class MyList(list):
         """
         sorted_list = sorted(self)
         print(sorted_list)
+import doctest
+
+if __name__ == "__main__":
+    doctest.testmod()
