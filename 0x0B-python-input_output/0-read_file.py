@@ -11,9 +11,6 @@ def read_file(filename=""):
     :param filename: The path to the text file to be read.
     :type filename: str
     """
-    try:
-        with open(filename, mode='r', encoding='utf-8') as f:
-            for line in f:
-                print(line, end="")
-    except FileNotFoundError:
-        pass
+    with open(filename, mode='r', encoding='utf-8') as f:
+        for line in f:
+            print(line, end="")
