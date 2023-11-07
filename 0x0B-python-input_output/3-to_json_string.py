@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Writes a string-to-JSON function."""
 import json
 
