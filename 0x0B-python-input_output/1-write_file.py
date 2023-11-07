@@ -6,7 +6,8 @@ This define the write_function
 
 def write_file(filename="", text=""):
     """
-    Write a string to a text file (UTF-8) and return the number of characters written.
+    Write a string to a text file (UTF-8) and
+    return the number of characters written.
 
     :param filename: The name of the file to write to.
     :type filename: str
@@ -15,11 +16,8 @@ def write_file(filename="", text=""):
     :return: The number of characters written to the file.
     :rtype: int
     """
-
     char_count = len(text)
     file = open(filename, mode='w', encoding='utf-8')
-    
     file.write(text)
-        
     file.close()
     return char_count
