@@ -25,4 +25,3 @@ class Student:
         :return: A dictionary with the attributes of the Student instance.
         """
         return self.__dict__
-
