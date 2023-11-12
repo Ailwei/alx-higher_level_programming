@@ -15,8 +15,10 @@ class Rectangle(Base):
             height (int): Height of the rectangle.
             x (int, optional): x-coordinate of the rectangle. Defaults to 0.
             y (int, optional): y-coordinate of the rectangle. Defaults to 0.
-            id (int, optional): The ID to assign to the instance. Defaults to None.
-                Calls the super class with id to utilize the logic of the __init__ method in the Base class.
+            id (int, optional): The ID to assign to the instance.
+            Defaults to None.
+                Calls the super class with id to utilize the logic
+                of the __init__ method in the Base class.
         """
         super().__init__(id)
         self.width = width
@@ -76,14 +78,13 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-         """Setter for the y attribute."""
-         if not isinstance(value, int):
-             raise TypeError("y must be an integer")
-         elif value < 0:
-             raise ValueError("y must be >= 0")
-         else:
-             self.__y = value
-
+        """Setter for the y attribute."""
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        elif value < 0:
+            raise ValueError("y must be >= 0")
+        else:
+            self.__y = value
 
     def area(self):
         return self.width * self.height
@@ -98,7 +99,10 @@ class Rectangle(Base):
 
     def __str__(self):
         """Returns a string representation of the Rectangle instance."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format
+    (
+            self.id, self.x, self.y, self.width, self.height
+            )
 
     def update(self, *args, **kwargs):
         """Assigns no-keyword arguments to the corresponding attributes."""

@@ -13,11 +13,15 @@ class Square(Rectangle):
             size (int): Size of the square.
             x (int, optional): x-coordinate of the square. Defaults to 0.
             y (int, optional): y-coordinate of the square. Defaults to 0.
-            id (int, optional): The ID to assign to the instance. Defaults to None.
-                Calls the super class with id, x, y, size, and size to utilize the logic of the __init__ method in the Rectangle class.
+            id (int, optional): The ID to assign to the instance.
+            Defaults to None.
+                Calls the super class with id, x, y, size, and
+                size to utilize the logic of the __init__ method
+                in the Rectangle class.
         """
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
+
     def __str__(self):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
@@ -31,6 +35,8 @@ class Square(Rectangle):
         """Setter for the size attribute."""
         self.width = value
         self.height = value
+
+
 def update(self, *args, **kwargs):
     """
     Assigns attributes based on both no-keyworded and keyworded arguments.
@@ -58,12 +64,15 @@ def update(self, *args, **kwargs):
         if 'y' in kwargs:
             self.y = kwargs['y']
 
+
 def to_dictionary(self):
-        """Returns the dictionary representation of a Square instance."""
-        return {
-                'id': self.id,
-                'width': self.width,
-                'height': self.height,
-                'x': self.x,
-                'y': self.y
-                }
+    """
+    Returns the dictionary representation of a Square instance.
+    """
+    return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+            }

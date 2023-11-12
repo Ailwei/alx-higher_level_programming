@@ -21,7 +21,7 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    @staticmethod 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """
         Returns the JSON string representation of a list of dictionaries.
@@ -63,6 +63,7 @@ class Base:
             else:
                 f.write(json_string)
 
+
 def from_json_string(json_string):
     """
     Returns the list of dictionaries represented by a JSON string.
@@ -75,24 +76,27 @@ def from_json_string(json_string):
     @classmethod
     def create(cls, **dictionary):
         """
-        Returns an instance with all attributes set based on the provided dictionary.
+        Returns an instance with all attributes set
+        based on the provided dictionary.
 
         Args:
             cls: The class (Base or its subclass).
-            **dictionary: A dictionary containing attribute values for the instance.
+            **dictionary: A dictionary containing attribute
+            values for the instance.
 
         Returns:
-            instance: An instance of the class with attributes set based on the dictionary.
+            instance: An instance of the class with
+            attributes set based on the dictionary.
         """
         if cls.__name__ == "Rectangle":
-            dummy_instance = cls(1,1)
+            dummy_instance = cls(1, 1)
         elif cls.__name__ == "Square":
             dummy_instance = cls(1)
         else:
             raise ValueEroor("Unsupported class")
         dummy_instance.update(**dictionary)
         return dummy_instance
-    
+
     @classmethod
     def load_from_file(cls):
         """
@@ -121,7 +125,9 @@ def from_json_string(json_string):
     @staticmethod
     def from_csv_row(row):
         """Converts a CSV row to a dictionary."""
-        return {key: int(value) for key, value in zip(["id", "width", "height", "x", "y"], row)}
+        return {
+                key: int(value) for key,
+                value in zip(["id", "width", "height", "x", "y"], row)}
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -167,7 +173,8 @@ def from_json_string(json_string):
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
-        Opens a window and draws all Rectangles and Squares using Turtle graphics.
+        Opens a window and draws all Rectangles and
+        Squares using Turtle graphics.
 
         Args:
             list_rectangles (list): A list of Rectangle instances.
