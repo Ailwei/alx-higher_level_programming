@@ -44,3 +44,12 @@ class Square(Rectangle):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """return a string represatatrion of the square"""
+        return {
+                'id': self.id,
+                'size': self.width,
+                'x': self.x,
+                'y': self.y
+                }
