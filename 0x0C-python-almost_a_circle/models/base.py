@@ -84,3 +84,14 @@ class Base:
                 key: getattr(self, key)
                 for key in self.__dict__.keys() - {'id'}
                 }
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + "json"
+        try:
+            with open(filename, 'r') as file:
+                json_string = file.read()
+                dictionaries = cls.from_json_string(json_string)
+                return [cls.create(**d) for d in dictionaries]
+        except FileNotFoundError:
+            return []
