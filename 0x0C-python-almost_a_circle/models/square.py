@@ -2,6 +2,7 @@
 """Defines the Square class."""
 
 from models.rectangle import Rectangle
+import csv
 
 
 class Square(Rectangle):
@@ -53,15 +54,16 @@ class Square(Rectangle):
                 'x': self.x,
                 'y': self.y
                 }
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         filename = cls.__name__ + ".csv"
         with open(filename, 'w', newline='') as file:
             writer = csv.writer(file)
             for obj in list_objs:
-                writer.writerrow(obj).to_csv_row()
+                writer.writerow(obj.to_csv_row())
 
-    @classmethod 
+    @classmethod
     def load_from_file_csv(cls):
         filename = cls.__name__ + ".csv"
         try:
@@ -73,3 +75,7 @@ class Square(Rectangle):
                 return instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def from_csv_row(cls, row):
+        return cls(*map(int, row[1:]), id=int(row[0]))
