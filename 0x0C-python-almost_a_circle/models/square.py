@@ -53,3 +53,23 @@ class Square(Rectangle):
                 'x': self.x,
                 'y': self.y
                 }
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as file:
+            writer = csv.writer(file)
+            for obj in list_objs:
+                writer.writerrow(obj).to_csv_row()
+
+    @classmethod 
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, 'r', newline='') as file:
+                reader = csv.reader(file)
+                instances = []
+                for row in reader:
+                    instances.append(cls.from_csv_row(row))
+                return instances
+        except FileNotFoundError:
+            return []
