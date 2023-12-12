@@ -1,2 +1,2 @@
 -- write a script fill description of the table
-SHOW CREATE TABLE 'first_name';
+SELECT * FROM first_table;
