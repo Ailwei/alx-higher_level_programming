@@ -2,7 +2,7 @@
 
 const arg = process.argv.length;
 
-if (argc > 2)
+if (arg > 2)
 {
 	console.log('Argument$arg > 3 ? 's' : ''} found');
 
