@@ -8,9 +8,9 @@ if (number_args == 0)
 }
 else if (number_args === 1)
 {
-	console.log('Argument found');
+	console.log('Arguments found');
 }
 else 
 {
-	console.log('Argument found');
+	console.log('Arguments found');
 }
