@@ -7,4 +7,3 @@ if (typeof firstArg === 'undefined') {
 } else {
   console.log(firstArg);
 }
-
