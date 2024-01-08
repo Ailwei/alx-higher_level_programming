@@ -2,7 +2,6 @@
 
 const languages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-for (const languange of lamguages)
-{
-	console.log(languages);
+for (const language of languages) {
+  console.log(language);
 }
