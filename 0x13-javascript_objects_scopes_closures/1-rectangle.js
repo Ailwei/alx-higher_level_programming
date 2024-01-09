@@ -7,3 +7,4 @@ constructor(w, h)
 	this.height = h;
 }
 }
+module.exports = Rectangle;
