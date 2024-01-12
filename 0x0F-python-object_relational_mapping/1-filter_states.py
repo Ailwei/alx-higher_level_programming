@@ -7,11 +7,12 @@ with N (upper N) from the database hbtn_0e_0_usa:
 import MySQLdb as db
 from sys import argv
 
-if __name__ == '__main__':
     """
     Access the database and get states from the database
-
     """
+
+if __name__ == '__main__':
+    
 
 conn = db.connect(
         host="localhost",
