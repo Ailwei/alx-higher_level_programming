@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """
-Write a script that takes in arguments and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument, while preventing SQL injection.
+Write a script that takes in arguments and
+displays all values in the states table
+of hbtn_0e_0_usa where name matches the argument,
+while preventing SQL injection.
 """
 
 import MySQLdb
 from sys import argv
+
 
 def safe_filter_states(username, password, database, state_name):
     """
@@ -15,7 +18,11 @@ def safe_filter_states(username, password, database, state_name):
     try:
         # Connect to MySQL server
         con = MySQLdb.connect(
-            host="localhost", user=username, port=3306, passwd=password, db=database)
+            host="localhost",
+            user=username,
+            port=3306,
+            passwd=password,
+            db=database)
 
         cur = con.cursor()
 
@@ -36,14 +43,21 @@ def safe_filter_states(username, password, database, state_name):
             cur.close()
             con.close()
 
+
 if __name__ == '__main__':
     """
     Main function to parse command line arguments
     and call the safe_filter_states function.
     """
     if len(argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(argv[0]))
+        print(
+                "Usage: {} <username> <password> <database> "
+                "<state_name>".format(argv[0])
+                )
         exit(1)
 
-    username, password, database, state_name = argv[1], argv[2], argv[3], argv[4]
+    username,
+    password,
+    database,
+    state_name = argv[1], argv[2], argv[3], argv[4]
     safe_filter_states(username, password, database, state_name)
