@@ -50,14 +50,14 @@ if __name__ == '__main__':
     and call the safe_filter_states function.
     """
     if len(argv) != 5:
-        print(
-                "Usage: {} <username> <password> <database> "
-                "<state_name>".format(argv[0])
-                )
+        print("Usage: {}\n"
+              "<username>\n"
+              "<password>\n"
+              "<database>\n"
+              "<state_name>".format(argv[0]))
         exit(1)
-
-    username,
-    password,
-    database,
-    state_name = argv[1], argv[2], argv[3], argv[4]
-    safe_filter_states(username, password, database, state_name)
+        username,
+        password,
+        database,
+        state_name = argv[1], argv[2], argv[3], argv[4]
+        safe_filter_states(username, password, database, state_name)
