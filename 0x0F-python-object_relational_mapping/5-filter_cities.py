@@ -1,49 +1,50 @@
 #!/usr/bin/python3
 """
-Write a script that takes in the name of a state as an argument
-and lists all cities of that state using the database hbtn_0e_4_usa.
+This script takes in the name of a state
+as an argument and lists all cities of that
+state, using the database `hbtn_0e_4_usa`.
+
+Usage:
+    - Ensure that you have MySQLdb installed: pip install mysqlclient
+    - Provide the necessary arguments
+
+Example:
+    ./script_name.py <username> <password> <database> <state_name>
+
+The script connects to the specified MySQL database running on localhos
+It retrieves and displays information about cities in the specified
 """
 
-import MySQLdb
+import MySQLdb as db
 from sys import argv
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
-    Access the database and get cities of the specified state.
+    Access to the database and get the cities
+    from the database.
     """
-    try:
-        # Check if the correct number of arguments is provided
-        if len(argv) != 5:
-            print("Usage: {} <username> <password> <database> <state_name>".format(argv[0]))
-            exit(1)
 
-        # Get MySQL credentials and state name from command line arguments
-        username, password, database, state_name = argv[1], argv[2], argv[3], argv[4]
+    db_connect = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
 
-        # Connect to MySQL server
-        con = MySQLdb.connect(
-            host="localhost", user=username, port=3306, passwd=password, db=database)
+    with db_connect.cursor() as db_cursor:
+        db_cursor.execute("""
+            SELECT
+                cities.id, cities.name
+            FROM
+                cities
+            JOIN
+                states
+            ON
+                cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
+            ORDER BY
+                cities.id ASC
+        """, {
+            'state_name': argv[4]
+        })
+        rows_selected = db_cursor.fetchall()
 
-        cur = con.cursor()
-
-        # Use execute() to fetch cities of the specified state
-        query = """
-        SELECT cities.id, cities.name, states.name
-        FROM cities
-        JOIN states ON cities.state_id = states.id
-        WHERE states.name = %s
-        ORDER BY cities.id ASC
-        """
-        cur.execute(query, (state_name,))
-        rows_selected = cur.fetchall()
-
-        for row in rows_selected:
-            print(row)
-
-    except MySQLdb.Error as e:
-        print("Error connecting to the database:", e)
-
-    finally:
-        if 'con' in locals() or 'con' in globals():
-            cur.close()
-            con.close()
+    if rows_selected is not None:
+        print(", ".join([row[1] for row in rows_selected]))
