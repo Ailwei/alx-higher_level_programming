@@ -4,13 +4,15 @@ This script lists all cities from the database `hbtn_0e_4_usa`.
 
 Usage:
     - Ensure that you have MySQLdb installed: pip install mysqlclient
-    - Provide the necessary arguments (username, password, database name) when executing the script.
+    - Provide the necessary arguments
 
 Example:
     ./script_name.py <username> <password> <database>
 
-The script connects to the specified MySQL database running on localhost at port 3306.
-It retrieves and displays information about cities from the 'hbtn_0e_4_usa' database.
+The script connects to the specified MySQL
+database running on localhost at port 3306.
+It retrieves and displays information about
+cities from the 'hbtn_0e_4_usa' database.
 """
 
 import MySQLdb as db
