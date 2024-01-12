@@ -4,7 +4,7 @@ Write a script that lists all states with a name starting
 with N (upper N) from the database hbtn_0e_0_usa:
 """
 
-import MySQLdb
+import MySQLdb as db
 from sys import argv
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     """
 
-conn = MySQLdb.connect(
+conn = db.connect(
         host="localhost",
         user=argv[1],
         port=3306,
