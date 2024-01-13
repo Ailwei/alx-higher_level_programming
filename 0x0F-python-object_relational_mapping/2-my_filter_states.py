@@ -1,27 +1,41 @@
 #!/usr/bin/python3
 """
-This script takes in an argument and displays all values in the states
-where `name` matches the argument from the database `hbtn_0e_0_usa`.
-The script connects to the database and
-retrieves the states based on the provided argument.
+This script prints the first State object
+from the database `hbtn_0e_6_usa`.
+
+Usage:
+    - Ensure that you have the required SQLAlchemy and MySQL libraries installed:
+      pip install sqlalchemy mysqlclient
+    - Provide the necessary arguments (username, password, database name, state name) when executing the script.
+
+Example:
+    ./script_name.py <username> <password> <database> <state_name>
+
+The script connects to the specified MySQL database running on localhost at port 3306.
+It retrieves and prints information about the first State object with the specified name from the 'hbtn_0e_6_usa' database.
 """
 
-import MySQLdb as db
 from sys import argv
+from model_state import State, Base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
-    Access the database and retrieve the states
+    Access to the database and get a state
     from the database.
     """
-    db_connect = db.connect(host="localhost", port=3306,
-                            user=argv[1], passwd=argv[2], db=argv[3])
-    db_cursor = db_connect.cursor()
 
-    db_cursor.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
-                        states.id ASC".format(argv[4]))
-    rows_selected = db_cursor.fetchall()
+    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+        argv[1], argv[2], argv[3])
 
-    for row in rows_selected:
-        print(row)
+    engine = create_engine(db_url)
+    Session = sessionmaker(bind=engine)
+
+    session = Session()
+
+    state = session.query(State).filter(State.name == argv[4]).first()
+    if state is not None:
+        print('{0}'.format(state.id))
+    else:
+        print("Not found")
