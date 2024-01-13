@@ -1,41 +1,37 @@
 #!/usr/bin/python3
 """
-This script prints the first State object
-from the database `hbtn_0e_6_usa`.
+This script retrieves and displays all values in the 'states'
+where the 'name' matches the provided argument from the database 'hbtn_0e_0_usa'.
 
 Usage:
-    - Ensure that you have the required SQLAlchemy and MySQL libraries installed:
-      pip install sqlalchemy mysqlclient
+    - Ensure that you have the MySQLdb library installed:
+      pip install mysqlclient
     - Provide the necessary arguments (username, password, database name, state name) when executing the script.
 
 Example:
     ./script_name.py <username> <password> <database> <state_name>
 
 The script connects to the specified MySQL database running on localhost at port 3306.
-It retrieves and prints information about the first State object with the specified name from the 'hbtn_0e_6_usa' database.
+It fetches and prints the rows from the 'states' table where the 'name' matches the provided argument.
+Results are sorted in ascending order by 'states.id'.
 """
 
+import MySQLdb as db
 from sys import argv
-from model_state import State, Base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     """
-    Access to the database and get a state
+    Access to the database and get the states
     from the database.
     """
+    db_connect = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
+    db_cursor = db_connect.cursor()
 
-    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-        argv[1], argv[2], argv[3])
+    db_cursor.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
+                        states.id ASC".format(argv[4]))
+    rows_selected = db_cursor.fetchall()
 
-    engine = create_engine(db_url)
-    Session = sessionmaker(bind=engine)
-
-    session = Session()
-
-    state = session.query(State).filter(State.name == argv[4]).first()
-    if state is not None:
-        print('{0}'.format(state.id))
-    else:
-        print("Not found")
+    for row in rows_selected:
+        print(row)
