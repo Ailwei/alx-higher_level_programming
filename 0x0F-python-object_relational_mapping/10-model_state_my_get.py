@@ -1,56 +1,41 @@
 #!/usr/bin/python3
-"""Script that prints the State object with the name passed as an argument
-   from the database hbtn_0e_6_usa"""
+"""
+This script prints the first State object
+from the database `hbtn_0e_6_usa`.
 
-import sys
-from model_state import Base, State
+Usage:
+    - Ensure that you have the required SQLAlchemy and MySQL libraries installed:
+      pip install sqlalchemy mysqlclient
+    - Provide the necessary arguments (username, password, database name, state name) when executing the script.
+
+Example:
+    ./script_name.py <username> <password> <database> <state_name>
+
+The script connects to the specified MySQL database running on localhost at port 3306.
+It retrieves and prints information about the first State object with the specified name from the 'hbtn_0e_6_usa' database.
+"""
+
+from sys import argv
+from model_state import State, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-
-def print_state_by_name(username, password, db_name, state_name):
-    """Print the State object with the given
-    name from the database hbtn_0e_6_usa
+if __name__ == "__main__":
     """
-    # Create an SQLAlchemy engine
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name),
-                           pool_pre_ping=True)
+    Access to the database and get a state
+    from the database.
+    """
 
-    # Create the 'states' table
-    Base.metadata.create_all(engine)
+    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+        argv[1], argv[2], argv[3])
 
-    # Create a session
+    engine = create_engine(db_url)
     Session = sessionmaker(bind=engine)
+
     session = Session()
 
-    # Query the state by name and print the result
-    state = (session.query(State)
-             .filter(State.name == state_name)
-             .first())
-
-    if state:
-        print(state.id)
+    state = session.query(State).filter(State.name == argv[4]).first()
+    if state is not None:
+        print('{0}'.format(state.id))
     else:
         print("Not found")
-
-    # Close the session
-    session.close()
-
-
-if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <db_name> <state_name>".format(sys.argv[0]))
-        sys.exit(1)
-
-    # Get command line arguments
-    username,
-    password,
-    db_name,
-    state_name = sys.argv[1],
-    sys.argv[2],
-    sys.argv[3],
-    sys.argv[4]
-
-    # Call the function to print the state by name
-    print_state_by_name(username, password, db_name, state_name)
