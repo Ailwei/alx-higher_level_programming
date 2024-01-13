@@ -4,15 +4,18 @@ This script prints the first State object
 from the database `hbtn_0e_6_usa`.
 
 Usage:
-    - Ensure that you have the required SQLAlchemy and MySQL libraries installed:
+    - Ensure that you have the required SQLAlchemy
+    and MySQL libraries installed:
       pip install sqlalchemy mysqlclient
-    - Provide the necessary arguments (username, password, database name, state name) when executing the script.
-
+    - Provide the necessary arguments
 Example:
     ./script_name.py <username> <password> <database> <state_name>
 
-The script connects to the specified MySQL database running on localhost at port 3306.
-It retrieves and prints information about the first State object with the specified name from the 'hbtn_0e_6_usa' database.
+The script connects to the specified MySQL database
+running on localhost at port 3306.
+It retrieves and prints information about
+the first State object with the specified name
+from the 'hbtn_0e_6_usa' database.
 """
 
 from sys import argv
