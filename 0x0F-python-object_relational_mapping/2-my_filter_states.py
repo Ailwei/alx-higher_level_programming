@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 """
 This script retrieves and displays all values in the 'states'
-where the 'name' matches the provided argument from the database 'hbtn_0e_0_usa'.
+where the 'name' matches the provided argument
+from the database 'hbtn_0e_0_usa'.
 
 Usage:
     - Ensure that you have the MySQLdb library installed:
       pip install mysqlclient
-    - Provide the necessary arguments (username, password, database name, state name) when executing the script.
-
+    - Provide the necessary arguments
 Example:
     ./script_name.py <username> <password> <database> <state_name>
 
-The script connects to the specified MySQL database running on localhost at port 3306.
-It fetches and prints the rows from the 'states' table where the 'name' matches the provided argument.
+The script connects to the specified MySQL database
+running on localhost at port 3306.
+It fetches and prints the rows from the 'states'
+table where the 'name' matches the provided argument.
 Results are sorted in ascending order by 'states.id'.
 """
 
