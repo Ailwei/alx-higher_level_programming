@@ -1,5 +1,4 @@
 #!/bin/bash
 
-# bash script that takes url sends AGET request to the url
-
-curl -s "$url"
+# bash script that takes url sends AGET request to the ur
+curl -sL "$1"
