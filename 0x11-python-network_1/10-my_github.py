@@ -3,6 +3,10 @@
 Uses Basic Authentication with the github api to display the user's id
 """
 
+import requests
+im port sys
+
+
 if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
