@@ -4,7 +4,7 @@ Uses Basic Authentication with the github api to display the user's id
 """
 
 import requests
-im port sys
+import sys
 
 
 if __name__ == "__main__":
