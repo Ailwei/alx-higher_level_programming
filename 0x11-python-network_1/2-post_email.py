@@ -20,6 +20,6 @@ if __name__ == "__main__":
             body = response.read().decode('utf-8')
             print("hr@holbertonschool.com:", body)
     except urllib.error.HTTPError as e:
-            print("Error code:", e.code)
+        print("Error code:", e.code)
     except urllib.error.URLError as e:
-            print("Error: {}".format(e.reason))
+        print("Error: {}".format(e.reason))
