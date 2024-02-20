@@ -9,7 +9,7 @@ request.get(apiUrl, (error, response, body) => {
 	if (error) {
 		console.log(error);
 	} else {
-		const data = Json.parse(body);
+		const data = JSON.parse(body);
 		data.results.forEach((film) => {
 			film.characters.forEach((character) => {
 				if (character.includes(charID)) {
