@@ -11,4 +11,3 @@ fs.readFile(filePath, 'utf-8', (error, content) => {
 		console.log(content);
 	}
 });
-
